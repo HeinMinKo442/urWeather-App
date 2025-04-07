@@ -12,7 +12,7 @@ function ShowWeatherCart({ weather }) {
       <div className="items-center flex flex-col justify-center mt-5">
         <img
           className="w-25 h-25"
-          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
           alt="Weather Icon"
         />
         <p className="text-lg font-semibold">

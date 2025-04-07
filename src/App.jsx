@@ -3,9 +3,12 @@ import Header from "./components/Hearder";
 import SearchInput from "./components/SearchInput";
 import { fetchWeatherCity, fetchWeatherForecast } from "./hooks/fetchWeather";
 import ShowWeatherCart from "./components/ShowWeatherCart";
+import { dailyForecast } from "./utls/TImeManagement";
+import ShowDailyForecast from "./components/ShowDailyForecast";
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
   const search = async (city) => {
     if (!city) return;
@@ -17,6 +20,8 @@ function App() {
     const lon = data.coord.lon;
     const forecastData = await fetchWeatherForecast(lat, lon);
     console.log("Forecast Weather Data => ", forecastData);
+    const dailyData = dailyForecast(forecastData.list);
+    setForecast(dailyData);
     if (data.cod === 200) {
       setWeather(data);
       setError(null);
@@ -25,16 +30,14 @@ function App() {
     }
   };
   return (
-    <div className="bg-gradient-to-bl from-blue-800 to-gray-400">
+    <div className="min-h-screen py-6 bg-gradient-to-bl from-blue-800 to-gray-400">
       <Header />
-      <main className="flex flex-col items-center h-screen">
+      <main className="flex flex-col items-center">
         <SearchInput search={search} />
         {error && <p className="text-red-400">{error}</p>}
         {weather && <ShowWeatherCart weather={weather} />}
       </main>
-      <main className="h-screen">
-        <h2>this is second main section</h2>
-      </main>
+      <ShowDailyForecast data={forecast} />
     </div>
   );
 }
