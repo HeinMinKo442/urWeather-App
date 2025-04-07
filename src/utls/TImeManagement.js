@@ -23,3 +23,26 @@ export function formatDate(unixTimestamp) {
     day: "numeric",
   });
 }
+
+export function formatDateOnly(unixTimestamp) {
+  const date = new Date(unixTimestamp * 1000);
+  return date.toLocaleString("en-US", {
+    weekday: "long",
+  });
+}
+
+// This function takes a forecasted weather data object and return an array of daily forecast and get 12:00:00 daily data for each day
+// and push it into the daily array. It also checks if the date is already seen to avoid duplicates.
+export function dailyForecast(data) {
+  const daily = [];
+
+  const dateSeen = new Set();
+  data.forEach((item) => {
+    const date = item.dt_txt.split(" ")[0];
+    if (!dateSeen.has(date) && item.dt_txt.includes("12:00:00")) {
+      dateSeen.add(date);
+      daily.push(item);
+    }
+  });
+  return daily;
+}
