@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Header from "./components/Hearder";
 import SearchInput from "./components/SearchInput";
-import ShowWeatherCart from "./components/showWeatherCart";
 import { fetchWeatherCity, fetchWeatherForecast } from "./hooks/fetchWeather";
+import ShowWeatherCart from "./components/ShowWeatherCart";
 
 function App() {
   const [weather, setWeather] = useState(null);
