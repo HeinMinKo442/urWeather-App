@@ -3,8 +3,10 @@ import { useState } from "react";
 function SearchInput({ search }) {
   const [searchCity, setSearchCity] = useState("");
   const citySearch = () => {
-    setSearchCity("");
-    search(searchCity);
+    if (searchCity.trim() !== "") {
+      search(searchCity.trim());
+      setSearchCity("");
+    }
   };
   return (
     <div className="flex flex-row items-center p-4 gap-2 rounded-lg w-[400px] mx-auto">
