@@ -15,7 +15,7 @@ function SearchInput({ search }) {
         placeholder="Search City"
         onChange={(e) => setSearchCity(e.target.value)}
         value={searchCity}
-        className="w-full my-2 py-2 px-4 focus:outline-none border focus:ring-1  rounded-xl"
+        className="w-full my-2 py-2 px-4 focus:outline-none border focus:ring-1 focus:ring-yellow-800 rounded-xl"
       />
       <button
         className="py-2 px-4 cursor-pointer bg-indigo-300 rounded-xl"

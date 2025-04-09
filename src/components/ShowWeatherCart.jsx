@@ -2,7 +2,7 @@ import { formatDate, formatSunTime } from "../utls/TImeManagement";
 
 function ShowWeatherCart({ weather }) {
   return (
-    <div className="mt-4 w-1/2 p-4 flex flex-col justify-center">
+    <div className="mt-4 p-4 flex flex-col justify-center">
       <h2 className="text-2xl font-bold justify-start">
         {weather.name},{weather.sys.country}
       </h2>
@@ -28,7 +28,7 @@ function ShowWeatherCart({ weather }) {
         </div>
         <div>
           <p>Wind Speed: {weather.wind.speed} m/s</p>
-          {/* <p>Wind Gusts: {weather.wind.gust} m/s</p> */}
+          <p>Wind Gusts: {weather.wind.gust} m/s</p>
           <p>Cloudiness: {weather.clouds.all} %</p>
         </div>
         <div>
