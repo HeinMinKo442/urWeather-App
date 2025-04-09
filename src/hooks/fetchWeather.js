@@ -8,13 +8,11 @@ export async function fetchWeatherCity(city) {
     const res = await fetch(
       `${CurrentWeatherUrl}?q=${city}&appid=${apiKey}&units=metric`
     );
-    if (!res.ok) {
-      throw new Error("City not found");
-    }
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log(error);
+    console.log("this is from fetchWeatherCity", error.message);
+    return null;
   }
 }
 export async function fetchWeatherForecast(lat, lon) {

@@ -30,6 +30,12 @@ export function formatDateOnly(unixTimestamp) {
     weekday: "long",
   });
 }
+export function formatDateOnly2(unixTimestamp) {
+  const date = new Date(unixTimestamp * 1000);
+  return date.toLocaleString("en-US", {
+    day: "numeric",
+  });
+}
 
 // This function takes a forecasted weather data object and return an array of daily forecast and get 12:00:00 daily data for each day
 // and push it into the daily array. It also checks if the date is already seen to avoid duplicates.

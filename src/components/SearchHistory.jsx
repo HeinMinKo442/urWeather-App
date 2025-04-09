@@ -1,5 +1,4 @@
 function SearchHistory({ storedHistory, search, clearHistory }) {
-  console.log(storedHistory);
   return (
     <div>
       {storedHistory.length > 0 ? (
@@ -22,7 +21,7 @@ function SearchHistory({ storedHistory, search, clearHistory }) {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-center">There is no search History</h1>
+          <h1 className="text-center text-gray-700">There is no search History</h1>
         </div>
       )}
     </div>
