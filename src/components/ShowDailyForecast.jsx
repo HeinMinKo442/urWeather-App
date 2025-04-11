@@ -1,7 +1,6 @@
 import { formatDateOnly, formatDateOnly2 } from "../utls/TImeManagement";
 
-function ShowDailyForecast({ data }) {
-  console.log("this is the daily forecast data", data);
+function ShowDailyForecast({ data,unit }) {
   // Check if data is null or undefined
   return (
     <div className="mb-10 mt-10">
@@ -27,7 +26,7 @@ function ShowDailyForecast({ data }) {
                   src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
                   alt="Weather Icon"
                 />
-                <p className="font-semibold">{Math.round(item.main.temp)} °C</p>
+                <p className="font-semibold">{Math.round(item.main.temp)} °°{unit === "metric" ? "C" : "F"}</p>
                 <p className="capitalize">{item.weather[0].description}</p>
               </div>
             
